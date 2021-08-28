@@ -1,3 +1,4 @@
-const express = require("express");
+import express from "express";
 
-const app = express();
+console.log("hello");
+console.log("i am good\nhello");
