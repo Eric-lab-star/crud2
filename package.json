@@ -6,7 +6,7 @@
     "type": "git",
     "url": "git+https://github.com/Eric-lab-star/crud2.git"
   },
-  "scripts":{
+  "scripts": {
     "win": "node index.js"
   },
   "author": "Eric",
@@ -14,5 +14,8 @@
   "bugs": {
     "url": "https://github.com/Eric-lab-star/crud2/issues"
   },
-  "homepage": "https://github.com/Eric-lab-star/crud2#readme"
+  "homepage": "https://github.com/Eric-lab-star/crud2#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
