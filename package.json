@@ -1,0 +1,18 @@
+{
+  "name": "crud2",
+  "version": "1.0.0",
+  "description": "best way to watch video",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eric-lab-star/crud2.git"
+  },
+  "scripts":{
+    "win": "node index.js"
+  },
+  "author": "Eric",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Eric-lab-star/crud2/issues"
+  },
+  "homepage": "https://github.com/Eric-lab-star/crud2#readme"
+}
