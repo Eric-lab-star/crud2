@@ -1,8 +1,7 @@
 {
   "name": "crud2",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "good luck",
   "scripts": {
     "dev": "nodemon --exec babel-node src/server.js"
   },
