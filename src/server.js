@@ -1,12 +1,13 @@
 import express from "express";
+
 import morgan from "morgan";
 
-const app = express();
 const logger = morgan("dev");
-const listen = () => {
-  console.log("server is listening to http://localhost:4000");
-};
+const app = express();
 
+const listen = () => {
+  console.log("listening to http://localhost:4000");
+};
 const globalRouter = express.Router();
 const userRouter = express.Router();
 const videoRouter = express.Router();
@@ -14,10 +15,9 @@ const videoRouter = express.Router();
 const home = (req, res) => res.send("home");
 const edit = (req, res) => res.send("edit");
 const watch = (req, res) => res.send("watch");
-
-videoRouter.get("/watch", watch);
-userRouter.get("/edit", edit);
 globalRouter.get("/", home);
+userRouter.get("/edit", edit);
+videoRouter.get("/watch", watch);
 
 app.use(logger);
 app.use("/", globalRouter);
