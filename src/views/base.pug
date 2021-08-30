@@ -6,10 +6,8 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet" href="https://unpkg.com/mvp.css")
         title #{pageTitle} | Eric
-    body
+    body 
         header 
-            block header
-        main
-            block mainContent
-
-    include partials/footer.pug
+            h1=pageTitle 
+        main 
+            block main

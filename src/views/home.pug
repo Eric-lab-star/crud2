@@ -1,7 +1,5 @@
 extends base
-
-block header
-    hr
-    h1 home
-    hr
-block mainContent
+include mixins/video
+block main 
+    each video in videos
+        +video(video)
