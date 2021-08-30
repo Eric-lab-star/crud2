@@ -1,11 +1,3 @@
 extends base
-
-
 block main
-    h3 #{video.title}
-    ul  
-        li #{video.rating} ratings
-        li #{video.views} #{video.views === 1 ? "view": "views"}
-    hr
-    a(href=`${video.id}/edit`) Edit Video &rarr;
-    
+    a(href=`${video.id}/edit`) Eidt Video &rarr;

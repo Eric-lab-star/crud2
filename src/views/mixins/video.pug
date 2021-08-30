@@ -1,7 +1,6 @@
 mixin video(video)
     h3
         a(href=`/videos/${video.id}`) #{video.title}
-    ul
-        li #{video.views} #{video.views === 1 ? "view": "views"}
-        li #{video.rating}
-    hr
+    ul 
+        li #{video.view} #{video.view === 1 ? "view" : "views" }
+        li #{video.rating} ratings
