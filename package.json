@@ -10,8 +10,8 @@
     "type": "git",
     "url": "git+https://github.com/Eric-lab-star/crud2.git"
   },
-  "author": "Eric",
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Eric-lab-star/crud2/issues"
   },
