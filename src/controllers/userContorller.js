@@ -1,2 +1,2 @@
-export const edit = (req, res) =>
+export const editProfile = (req, res) =>
   res.render("editProfile", { pageTitle: "Edit Profile" });

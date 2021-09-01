@@ -1,5 +1,7 @@
 import express from "express";
-import { edit } from "../controllers/userControllers";
+import { editProfile } from "../controllers/userContorller";
 const userRouter = express.Router();
-userRouter.get("/edit", edit);
+
+userRouter.get("/editProfile", editProfile);
+
 export default userRouter;
