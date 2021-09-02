@@ -1,10 +1,7 @@
-mixin video(video)    
-    section
-        aside
-            a(href=`/videos/${video.id}`)=video.title
-            ul
-                li=video.description
-                li=video.createdAt
-                li=video.hashtag
-                li #{video.view} views
-    
+mixin video(video)
+    a(href=`/videos/${video.id}`)
+        h3=video.title
+    ul 
+        li=video.description
+        li=video.hashtag
+    hr

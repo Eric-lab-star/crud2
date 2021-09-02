@@ -1,7 +1,10 @@
 extends base
-block main
-    h3 Description: #{video.description}
-    h4 Hastags: #{video.hashtag}
-    small=video.createdAt
-    hr
+block contents
+    ul 
+        li=video.description
+        li=video.hashtag
+        li=video.createdAt
+    br
     a(href=`${video.id}/edit`) Edit Video &rarr;
+    br
+    a(href=`${video.id}/delete`) Delete Video &rarr;

@@ -1,7 +1,7 @@
 extends base
-block main
+block contents
     form(method="post")
-        input(type="text", name="title", value=video.title, required )
-        input(type="text", name="description", value=video.description, required)
-        input(type="text", name="hashtag", value=video.hashtag.join(),required)
+        input(type="text", placeholder="title", name="title", value=video.title)
+        input(type="text", placeholder="description", name="description",value=video.description)
+        input(type="text", placeholder="hashtag", name="hashtag", value=video.hashtag.join())
         input(type="submit", value="Save")

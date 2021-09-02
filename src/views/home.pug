@@ -1,7 +1,8 @@
 extends base
 include mixins/video
-block main 
-    each video in videos 
-        +video(video)
-    else 
-        h3 video not found
+block contents 
+    each video in videos
+        +video(video) 
+    else
+        h3 Video not Found 
+        
