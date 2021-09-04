@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Eric-lab-star/crud2#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "express": "^4.17.1",
     "mongoose": "^6.0.4",
     "morgan": "^1.10.0",
