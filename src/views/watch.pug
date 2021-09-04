@@ -1,10 +1,9 @@
 extends base
 block contents
-    ul 
-        li=video.description
-        li=video.hashtag
-        li=video.createdAt
+    h4=video.description
+    h4=video.hashtag
+    small=video.createdAt
+    hr
+    a(href=`${video.id}/edit`) Edit Video
     br
-    a(href=`${video.id}/edit`) Edit Video &rarr;
-    br
-    a(href=`${video.id}/delete`) Delete Video &rarr;
+    a(href=`${video.id}/Delete`) Delete Video

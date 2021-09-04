@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-mongoose.connect("mongodb://127.0.0.1:27017/recap2");
+mongoose.connect(" mongodb://127.0.0.1:27017/recap3");
 
 const db = mongoose.connection;
 
