@@ -1,0 +1,31 @@
+{
+  "name": "crud2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/init.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eric-lab-star/crud2.git"
+  },
+  "author": "Eric",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Eric-lab-star/crud2/issues"
+  },
+  "homepage": "https://github.com/Eric-lab-star/crud2#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.4",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/preset-env": "^7.15.4",
+    "nodemon": "^2.0.12"
+  }
+}

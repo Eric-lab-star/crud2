@@ -1,0 +1,16 @@
+extends base
+block content
+  h4=video.title
+    
+    ul 
+        li 
+            h5=video.description
+        li    
+            h5=video.hashtag
+        li
+            h5=video.createdAt
+    hr
+    h5
+        a(href=`${video.id}/edit`) Edit Video &rarr;
+    h5
+        a(href=`${video.id}/delete`) Delete Video &rarr;
