@@ -57,6 +57,7 @@ export const postLogin = async (req, res) => {
       errorMessage: "Password confirmation failed",
     });
   }
-
+  req.sesion.loggedIn = true;
+  req.session.user = user;
   return res.redirect("/");
 };
