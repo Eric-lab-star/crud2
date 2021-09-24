@@ -16,6 +16,9 @@ html(lang="en")
                         a(href="/videos/upload") Upload
                     li
                         a(href="/search") Search
+                    if loggedIn
+                        li 
+                            a(href="/users/logout") Logout
                     if !loggedIn
                         li
                             a(href="/join") Join

@@ -21,8 +21,8 @@ server.use(
   session({
     resave: false,
     saveUninitialized: false,
-    secret: "hello",
-    store: MongoStore.create({ mongoUrl: "mongodb://127.0.0.1:27017/recap4" }),
+    secret: process.env.COOKIE_SECRET,
+    store: MongoStore.create({ mongoUrl: process.env.MONGO_URL }),
   })
 );
 
