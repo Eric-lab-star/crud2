@@ -3,9 +3,9 @@ import bcrypt from "bcrypt";
 import fetch from "node-fetch";
 
 export const user = (req, res) => {
-  return res.send("user");
+  return res.send("user profile");
 };
-
+//join
 export const getJoin = (req, res) => {
   return res.render("join", { pageTitle: "Join" });
 };
@@ -13,18 +13,21 @@ export const getJoin = (req, res) => {
 export const postJoin = async (req, res) => {
   const { username, name, password, location, email, password2 } = req.body;
   const exist = await User.exists({ username });
+  //user check
   if (exist) {
     return res.render("join", {
       errorMessage: " This username already exists",
       pageTitle: "Join",
     });
   }
+  //password check
   if (password !== password2) {
     return res.render("join", {
       errorMessage: "Password Validation Fail",
       pageTitle: "join",
     });
   }
+  //create user
   try {
     await User.create({
       username,
@@ -41,7 +44,7 @@ export const postJoin = async (req, res) => {
     });
   }
 };
-
+//login
 export const getLogin = (req, res) => {
   return res.render("login", { pageTitle: "Login" });
 };
@@ -49,6 +52,7 @@ export const getLogin = (req, res) => {
 export const postLogin = async (req, res) => {
   const { username, password } = req.body;
   const user = await User.findOne({ username });
+
   if (!user) {
     return res.render("login", {
       pageTitle: "Login",
@@ -67,6 +71,8 @@ export const postLogin = async (req, res) => {
   req.session.user = user;
   return res.redirect("/");
 };
+
+//git oauth
 
 export const startGithubLogin = (req, res) => {
   const baseUrl = "https://github.com/login/oauth/authorize";
@@ -89,6 +95,7 @@ export const finishGithubLogin = async (req, res) => {
   };
   const params = new URLSearchParams(config).toString();
   const finalURL = `${baseUrl}?${params}`;
+  //change code to token
   const tokenRequest = await (
     await fetch(finalURL, {
       method: "POST",
@@ -101,6 +108,7 @@ export const finishGithubLogin = async (req, res) => {
   if ("access_token" in tokenRequest) {
     const { access_token } = tokenRequest;
     const apiUrl = "https://api.github.com";
+    //userData
     const userData = await (
       await fetch(`${apiUrl}/user`, {
         headers: {
@@ -108,7 +116,7 @@ export const finishGithubLogin = async (req, res) => {
         },
       })
     ).json();
-
+    //email Data
     const emailData = await (
       await fetch(`${apiUrl}/user/emails`, {
         headers: {
@@ -124,7 +132,9 @@ export const finishGithubLogin = async (req, res) => {
     if (!emailObj) {
       return res.redirect("/login");
     }
+
     let user = await User.findOne({ email: emailObj.email });
+
     if (!user) {
       user = await User.create({
         name: userData.name,
@@ -147,4 +157,34 @@ export const finishGithubLogin = async (req, res) => {
 export const logout = (req, res) => {
   req.session.destroy();
   return res.redirect("/");
+};
+
+export const getEdit = (req, res) => {
+  return res.render("edit-profile", { pageTitle: "Edit Profile" });
+};
+export const postEdit = async (req, res) => {
+  const {
+    session: {
+      user: { _id },
+    },
+    body: { name, email, username, location },
+  } = req;
+  await User.findByIdAndUpdate(_id, {
+    name,
+    email,
+    username,
+    location,
+  });
+  const updatedUser = await User.findByIdAndUpdate(
+    _id,
+    {
+      name,
+      email,
+      username,
+      location,
+    },
+    { new: true }
+  );
+  req.session.user = updatedUser;
+  return res.redirect("/users/edit");
 };

@@ -5,7 +5,7 @@ import session from "express-session";
 import globalRouter from "./routers/globalRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
-import { localsMiddleware } from "./localsMiddleware";
+import { localsMiddleware } from "./middleware";
 const server = express();
 
 server.set("views", process.cwd() + "/src/views");
