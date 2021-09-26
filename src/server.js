@@ -28,6 +28,7 @@ server.use(
 
 server.use(localsMiddleware);
 
+server.use("/uploads", express.static("uploads"));
 server.use("/", globalRouter);
 server.use("/users", userRouter);
 server.use("/videos", videoRouter);
