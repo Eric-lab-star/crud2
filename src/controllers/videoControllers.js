@@ -11,7 +11,6 @@ export const getUpload = (req, res) => {
 };
 
 export const postUpload = async (req, res) => {
-  const { path: fileUrl } = req.file;
   const { title, description, hashtag } = req.body;
   const {
     user: { _id },
