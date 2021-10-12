@@ -13,8 +13,11 @@ export const getUpload = (req, res) => {
 export const postUpload = async (req, res) => {
   const { title, description, hashtag } = req.body;
   const {
-    user: { _id },
-  } = req.session;
+    session: {
+      user: { _id },
+    },
+    file: { path: fileUrl },
+  } = req;
   try {
     const newVideo = await Video.create({
       owner: _id,
@@ -45,11 +48,9 @@ export const watch = async (req, res) => {
   if (!video) {
     return res.render("404", { pageTitle: "Video not Found" });
   }
-  console.log(video.owner);
-
   return res.render("watch", {
+    pageTitle: video.title,
     video,
-    pageTitle: `Watching: ${video.title}`,
   });
 };
 

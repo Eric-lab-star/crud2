@@ -27,7 +27,7 @@ server.use(
 );
 
 server.use(localsMiddleware);
-
+server.use("/assets", express.static("assets"));
 server.use("/uploads", express.static("uploads"));
 server.use("/", globalRouter);
 server.use("/users", userRouter);

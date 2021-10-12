@@ -3,6 +3,10 @@ include ../mixins/video
 
 
 block content
+    img(src="/" + loggedInUser.avatarUrl, width="200", height="400")
+    
+
+    h4 Postings
     each video in user.videos
         +video(video)
     else
