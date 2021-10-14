@@ -6,6 +6,7 @@ import globalRouter from "./routers/globalRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import { localsMiddleware } from "./middleware";
+import apiRouter from "./routers/apiRouter";
 const server = express();
 
 server.set("views", process.cwd() + "/src/views");
@@ -32,5 +33,6 @@ server.use("/uploads", express.static("uploads"));
 server.use("/", globalRouter);
 server.use("/users", userRouter);
 server.use("/videos", videoRouter);
+server.use("/api", apiRouter);
 
 export default server;

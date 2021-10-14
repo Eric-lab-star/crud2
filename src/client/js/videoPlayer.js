@@ -23,7 +23,7 @@ const handlePlayClick = (e) => {
   } else {
     video.pause();
   }
-  playBtnIcon.classList = video.pause ? "fas fa-play" : "fas fa-pause";
+  playBtnIcon.classList = video.paused ? "fas fa-play" : "fas fa-pause";
 };
 
 const handleMute = (e) => {
@@ -108,6 +108,11 @@ const handleMouseLeave = () => {
   }, 3000);
 };
 
+const handleEnded = () => {
+  const { id } = videoContainerBtn.dataset;
+  fetch(`/api/videos/${id}/view`, { method: "post" });
+};
+
 video.addEventListener("loadeddata", handleLoadedMetaData);
 playBtn.addEventListener("click", handlePlayClick);
 muteBtn.addEventListener("click", handleMute);
@@ -117,3 +122,4 @@ timeline.addEventListener("input", handleTimeLineChange);
 fullScreen.addEventListener("click", handleFullscreen);
 videoContainerBtn.addEventListener("mousemove", handleMouseMove);
 videoContainerBtn.addEventListener("mouseleave", handleMouseLeave);
+video.addEventListener("ended", handleEnded);
