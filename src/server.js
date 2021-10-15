@@ -7,6 +7,7 @@ import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import { localsMiddleware } from "./middleware";
 import apiRouter from "./routers/apiRouter";
+import flash from "express-flash";
 const server = express();
 
 server.set("views", process.cwd() + "/src/views");
@@ -27,6 +28,7 @@ server.use(
   })
 );
 
+server.use(flash());
 server.use(localsMiddleware);
 server.use((req, res, next) => {
   res.header("Cross-Origin-Embedder-Policy", "require-corp");

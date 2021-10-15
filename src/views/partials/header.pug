@@ -6,7 +6,7 @@ header
             li
                 a(href="/search")
                     i.fas.fa-search
-            if loggedIn
+            if Boolean(loggedIn)
                 li
                     a(href="/videos/upload") Upload Video
                 li
