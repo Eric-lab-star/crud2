@@ -31,5 +31,5 @@ userRouter
   .get(getEdit)
   .post(avatarUpload.single("avatar"), postEdit);
 
-userRouter.get("/:id", see);
+userRouter.get("/:id([0-9a-f]{24})", see);
 export default userRouter;

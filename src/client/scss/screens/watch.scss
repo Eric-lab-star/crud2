@@ -1,4 +1,15 @@
-.watch {
-  width: 80vw;
-  height: 90vh;
+.descriptionContainer {
+  display: flex;
+  align-items: space-around;
+  width: 100%;
+}
+.description,
+.editAndDelete {
+  display: flex;
+  width: 50%;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.description {
+  align-items: flex-start;
 }

@@ -28,6 +28,13 @@ server.use(
 );
 
 server.use(localsMiddleware);
+server.use((req, res, next) => {
+  res.header("Cross-Origin-Embedder-Policy", "require-corp");
+  res.header("Cross-Origin-Opener-Policy", "same-origin");
+  next();
+});
+
+server.use("/node_modules", express.static("node_modules"));
 server.use("/assets", express.static("assets"));
 server.use("/uploads", express.static("uploads"));
 server.use("/", globalRouter);

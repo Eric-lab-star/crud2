@@ -16,21 +16,27 @@ export const postUpload = async (req, res) => {
     session: {
       user: { _id },
     },
-    file: { path: fileUrl },
+    files: { video, thumb },
   } = req;
+  console.log(thumb, video);
   try {
     const newVideo = await Video.create({
       owner: _id,
       title,
-      fileUrl,
+      fileUrl: video[0].path,
+      thumbUrl: thumb[0].path,
       description,
       hashtag: hashtag
         .split(",")
         .map((word) => (word.startsWith("#") ? word : `#${word}`)),
     });
+
     const user = await User.findById(_id);
+
     user.videos.push(newVideo._id);
+
     user.save();
+
     return res.redirect("/");
   } catch (error) {
     console.log(error);
