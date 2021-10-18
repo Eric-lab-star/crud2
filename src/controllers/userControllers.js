@@ -2,6 +2,7 @@ import User from "../models/User";
 import bcrypt from "bcrypt";
 import fetch from "node-fetch";
 import Video from "../models/Video";
+import Comment from "../models/Comment";
 
 export const getJoin = (req, res) => {
   return res.render("join", { pageTitle: "Join" });

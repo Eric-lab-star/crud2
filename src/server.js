@@ -17,6 +17,8 @@ server.use(
     extended: true,
   })
 );
+
+server.use(express.json());
 server.use(morgan("dev"));
 
 server.use(

@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
   socialOnly: { type: Boolean, default: false },
   name: { type: String },
   location: String,
+  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
   videos: [{ type: mongoose.Schema.Types.ObjectId, ref: "Video" }],
 });
 
