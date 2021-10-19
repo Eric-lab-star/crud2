@@ -2,6 +2,7 @@ extends base
 include mixins/video
 block content
     div.video-grid
+        iframe(width=auto height=auto src="https://www.youtube.com/embed/WPdWvnAAurg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
         each video in videos
             +video(video)
         else
