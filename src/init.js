@@ -4,6 +4,6 @@ import "./db";
 import "./models/Video";
 import "./models/User";
 import "./models/Comment";
-
+const PORT = process.env.PORT || 4000;
 import server from "./server";
-server.listen("4000", () => console.log("http://localhost:4000"));
+server.listen(PORT, () => console.log(`http://localhost:${PORT}`));
