@@ -1,4 +1,19 @@
 import multer from "multer";
+import multerS3 from "multer-s3";
+import aws from "aws-sd";
+
+const s3 = new aws.S3({
+  credential: {
+    accessKeyId: process.env.AWS_ID,
+    secretAccessKey: process.env.AWS_SECRET,
+  },
+});
+
+const multerUploader = multerS3({
+  s3: s3,
+  bucket: "sleepingkingwetube1",
+});
+
 export const localsMiddleware = (req, res, next) => {
   res.locals.loggedIn = Boolean(req.session.loggedIn);
   res.locals.siteName = "Wetube";
@@ -28,6 +43,7 @@ export const avatarUpload = multer({
   limits: {
     fileSize: 30000000,
   },
+  storage: multerUploader,
 });
 
 export const videoUpload = multer({
@@ -35,4 +51,5 @@ export const videoUpload = multer({
   limits: {
     fileSize: 1000000000,
   },
+  storage: multerUploader,
 });
